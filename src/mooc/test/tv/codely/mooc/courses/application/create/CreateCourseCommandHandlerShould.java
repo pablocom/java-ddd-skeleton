@@ -15,14 +15,14 @@ final class CreateCourseCommandHandlerShould extends CoursesModuleUnitTestCase {
     protected void setUp() {
         super.setUp();
 
-        handler = new CreateCourseCommandHandler(new CourseCreator(repository, eventBus));
+        handler = new CreateCourseCommandHandler(new CourseCreationService(repository, eventBus));
     }
 
     @Test
     void create_a_valid_course() {
         CreateCourseCommand command = CreateCourseCommandMother.random();
 
-        Course                   course      = CourseMother.fromRequest(command);
+        Course course = CourseMother.fromRequest(command);
         CourseCreatedDomainEvent domainEvent = CourseCreatedDomainEventMother.fromCourse(course);
 
         handler.handle(command);

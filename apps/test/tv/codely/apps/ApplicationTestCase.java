@@ -44,12 +44,8 @@ public abstract class ApplicationTestCase {
             .andExpect(response);
     }
 
-    protected void assertResponse(
-        String endpoint,
-        Integer expectedStatusCode,
-        String expectedResponse,
-        HttpHeaders headers
-    ) throws Exception {
+    protected void assertResponse(String endpoint, Integer expectedStatusCode, String expectedResponse, HttpHeaders headers)
+        throws Exception {
         ResultMatcher response = expectedResponse.isEmpty()
             ? content().string("")
             : content().json(expectedResponse);

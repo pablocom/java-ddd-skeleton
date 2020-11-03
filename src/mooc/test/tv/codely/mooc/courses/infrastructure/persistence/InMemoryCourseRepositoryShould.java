@@ -13,13 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 final class InMemoryCourseRepositoryShould extends CoursesModuleInfrastructureTestCase {
     @Test
-    void save_a_course() {
-        Course course = CourseMother.random();
-
-        inMemoryCourseRepository.save(course);
-    }
-
-    @Test
     void return_an_existing_course() {
         Course course = CourseMother.random();
 
@@ -29,7 +22,7 @@ final class InMemoryCourseRepositoryShould extends CoursesModuleInfrastructureTe
     }
 
     @Test
-    void not_return_a_non_existing_course() {
+    void does_not_return_a_non_existing_course() {
         assertFalse(inMemoryCourseRepository.search(CourseIdMother.random()).isPresent());
     }
 }

@@ -5,11 +5,11 @@ import tv.codely.shared.domain.Service;
 import tv.codely.shared.domain.bus.event.EventBus;
 
 @Service
-public final class CourseCreator {
+public final class CourseCreationService {
     private final CourseRepository repository;
     private final EventBus         eventBus;
 
-    public CourseCreator(CourseRepository repository, EventBus eventBus) {
+    public CourseCreationService(CourseRepository repository, EventBus eventBus) {
         this.repository = repository;
         this.eventBus   = eventBus;
     }

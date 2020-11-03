@@ -25,9 +25,7 @@ public final class CoursesPutController extends ApiController {
     }
 
     @PutMapping(value = "/courses/{id}")
-    public ResponseEntity<String> index(
-        @PathVariable String id,
-        @RequestBody Request request
+    public ResponseEntity<String> index(@PathVariable String id, @RequestBody Request request
     ) throws CommandHandlerExecutionError {
         dispatch(new CreateCourseCommand(id, request.name(), request.duration()));
 

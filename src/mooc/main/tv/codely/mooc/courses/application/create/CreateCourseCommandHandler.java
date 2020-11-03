@@ -8,9 +8,9 @@ import tv.codely.shared.domain.bus.command.CommandHandler;
 
 @Service
 public final class CreateCourseCommandHandler implements CommandHandler<CreateCourseCommand> {
-    private final CourseCreator creator;
+    private final CourseCreationService creator;
 
-    public CreateCourseCommandHandler(CourseCreator creator) {
+    public CreateCourseCommandHandler(CourseCreationService creator) {
         this.creator = creator;
     }
 
