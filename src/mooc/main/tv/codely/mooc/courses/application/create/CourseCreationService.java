@@ -7,9 +7,9 @@ import tv.codely.shared.domain.bus.event.EventBus;
 @Service
 public final class CourseCreationService {
     private final CourseRepository repository;
-    private final EventBus         eventBus;
+    private final EventBus eventBus;
 
-    public CourseCreationService(CourseRepository repository, EventBus eventBus) {
+    public CourseCreationService(final CourseRepository repository, final EventBus eventBus) {
         this.repository = repository;
         this.eventBus   = eventBus;
     }
