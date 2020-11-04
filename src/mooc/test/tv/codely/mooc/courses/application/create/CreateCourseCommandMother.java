@@ -8,6 +8,6 @@ public final class CreateCourseCommandMother {
     }
 
     public static CreateCourseCommand random() {
-        return create(CourseIdMother.random(), CourseNameMother.random(), CourseDurationMother.random());
+        return create(CourseIdCreator.random(), CourseNameMother.random(), CourseDurationMother.random());
     }
 }

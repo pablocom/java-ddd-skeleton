@@ -1,7 +1,7 @@
 package tv.codely.mooc.courses_counter.domain;
 
 import tv.codely.mooc.courses.domain.CourseId;
-import tv.codely.mooc.courses.domain.CourseIdMother;
+import tv.codely.mooc.courses.domain.CourseIdCreator;
 import tv.codely.shared.domain.ListMother;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public final class CoursesCounterMother {
     }
 
     public static CoursesCounter random() {
-        List<CourseId> existingCourses = ListMother.random(CourseIdMother::random);
+        List<CourseId> existingCourses = ListMother.random(CourseIdCreator::random);
 
         return create(
             CoursesCounterIdMother.random(),

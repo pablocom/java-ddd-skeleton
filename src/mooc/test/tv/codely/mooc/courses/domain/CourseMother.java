@@ -9,13 +9,13 @@ public final class CourseMother {
 
     public static Course fromRequest(CreateCourseCommand request) {
         return create(
-            CourseIdMother.create(request.id()),
+            CourseIdCreator.create(request.id()),
             CourseNameMother.create(request.name()),
             CourseDurationMother.create(request.duration())
         );
     }
 
     public static Course random() {
-        return create(CourseIdMother.random(), CourseNameMother.random(), CourseDurationMother.random());
+        return create(CourseIdCreator.random(), CourseNameMother.random(), CourseDurationMother.random());
     }
 }

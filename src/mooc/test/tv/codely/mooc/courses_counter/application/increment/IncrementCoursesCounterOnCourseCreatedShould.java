@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tv.codely.mooc.courses.domain.CourseCreatedDomainEventMother;
 import tv.codely.mooc.courses.domain.CourseId;
-import tv.codely.mooc.courses.domain.CourseIdMother;
+import tv.codely.mooc.courses.domain.CourseIdCreator;
 import tv.codely.mooc.courses_counter.CoursesCounterModuleUnitTestCase;
 import tv.codely.mooc.courses_counter.domain.CoursesCounter;
 import tv.codely.mooc.courses_counter.domain.CoursesCounterMother;
@@ -26,7 +26,7 @@ final class IncrementCoursesCounterOnCourseCreatedShould extends CoursesCounterM
     void it_should_initialize_a_new_counter() {
         CourseCreatedDomainEvent event = CourseCreatedDomainEventMother.random();
 
-        CourseId       courseId   = CourseIdMother.create(event.aggregateId());
+        CourseId       courseId   = CourseIdCreator.create(event.aggregateId());
         CoursesCounter newCounter = CoursesCounterMother.withOne(courseId);
 
         shouldSearch();
@@ -41,7 +41,7 @@ final class IncrementCoursesCounterOnCourseCreatedShould extends CoursesCounterM
     void it_should_increment_an_existing_counter() {
         CourseCreatedDomainEvent event = CourseCreatedDomainEventMother.random();
 
-        CourseId       courseId           = CourseIdMother.create(event.aggregateId());
+        CourseId       courseId           = CourseIdCreator.create(event.aggregateId());
         CoursesCounter existingCounter    = CoursesCounterMother.random();
         CoursesCounter incrementedCounter = CoursesCounterMother.incrementing(existingCounter, courseId);
 
@@ -56,7 +56,7 @@ final class IncrementCoursesCounterOnCourseCreatedShould extends CoursesCounterM
     void it_should_not_increment_an_already_incremented_course() {
         CourseCreatedDomainEvent event = CourseCreatedDomainEventMother.random();
 
-        CourseId       courseId        = CourseIdMother.create(event.aggregateId());
+        CourseId       courseId        = CourseIdCreator.create(event.aggregateId());
         CoursesCounter existingCounter = CoursesCounterMother.withOne(courseId);
 
         shouldSearch(existingCounter);

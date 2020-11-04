@@ -12,6 +12,6 @@ public final class CourseCreatedDomainEventMother {
     }
 
     public static CourseCreatedDomainEvent random() {
-        return create(CourseIdMother.random(), CourseNameMother.random(), CourseDurationMother.random());
+        return create(CourseIdCreator.random(), CourseNameMother.random(), CourseDurationMother.random());
     }
 }
